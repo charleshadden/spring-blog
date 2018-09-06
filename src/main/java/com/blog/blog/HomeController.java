@@ -1,14 +1,21 @@
 package com.blog.blog;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "/home", method = RequestMethod.GET)
     @ResponseBody
     private String landingPage() { return "This is the landing page!"; }
+
+
+    @GetMapping("/hello/{name}")
+    public String sayHello(@PathVariable String name, Model model) {
+        model.addAttribute("name", name);
+        return "hello";
+    }
+
 }
