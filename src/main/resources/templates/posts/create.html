@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head('create ad')"></head>
+<body class="container">
+<nav th:replace="fragments/navbar :: navbar"></nav>
+    <h1>Create an Ad</h1>
+
+    <form action="/posts/save" method="get">
+        <label for="">Title</label>
+        <input type="text" name="title" />
+        <label for="">Description</label>
+        <input type="text" name="body" />
+    <button class="btn btn-primary">Create Post</button>
+    </form>
+<script th:replace="fragments/scripts :: scripts"></script>
+</body>
+</html>
