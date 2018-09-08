@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <meta charset="UTF-8" />
-    <title>Home</title>
-    <!-- include stylesheets, etc here -->
-</head>
-<body>
-<nav th:fragment="navbar">
-    This is a navbar.
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<nav th:fragment="navbar" class="navbar">
+    <div class="container">
+        <a class="navbar1" href="/home"><h1 class="logo"><i class="fas fa-city"></i>The Blog</h1></a>
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+            <!--<span class="navbar-toggler-icon"></span>-->
+        <!--</button>-->
+        <div class="links">
+            <ul class="list">
+                <li class="nav-list">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                <li class="nav-list">
+                    <a class="nav-link" href="/posts/create">New Post</a>
+                </li>
+                <li class="nav-list">
+                    <a class="nav-link" href="/profile"><i class="fas fa-user-circle"></i></a>
+                </li>
+                <li class="nav-list">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
-</body>
 </html>
