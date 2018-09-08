@@ -4,7 +4,10 @@ import com.blog.blog.Post;
 import com.blog.blog.services.PostsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PostController {
@@ -29,20 +32,17 @@ public class PostController {
     }
 
     @GetMapping(path="/posts/create")
-    public String showCreateForm() {
+    public String showCreateForm(Model vModel) {
+        vModel.addAttribute("post", new Post());
         return "posts/create";
     }
 
-//    @PostMapping(path="posts/create")
-//    @ResponseBody
-//    private String createPost () { return "Creating Post"; }
 
-    @GetMapping("posts/save")
-    public String createAd(@RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-        Post post = postSvc.save(new Post(title, body));
+    @PostMapping("/posts/save")
+    public String createAd(@ModelAttribute Post post){
+        postSvc.save(post);
         return "redirect:/posts/";
     }
-
 
 
 

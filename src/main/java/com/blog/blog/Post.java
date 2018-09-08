@@ -1,9 +1,17 @@
 package com.blog.blog;
 
+//@Entity
+//@Table(name = "ads")
 public class Post {
 
+//    @Id
+//    @GeneratedValue
     private long id;
+
+//    @Column(nullable = false, length = 100)
     private String title;
+
+//    @Column(nullable = false)
     private String body;
 
     public Post() {}

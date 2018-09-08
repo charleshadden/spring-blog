@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head('create ad')"></head>
 <body class="container">
 <nav th:replace="fragments/navbar :: navbar"></nav>
-    <h1>Create an Ad</h1>
+    <h1 class="text-center">Create an Ad</h1>
 
-    <form action="/posts/save" method="get">
-        <label for="">Title</label>
-        <input type="text" name="title" />
-        <label for="">Description</label>
-        <input type="text" name="body" />
-    <button class="btn btn-primary">Create Post</button>
-    </form>
+    <div class="box text-center">
+            <form th:action="'/posts/save'" th:method="post" th:object="${post}">
+                <label for="">Title</label>
+                <input type="text" th:field="*{title}" />
+                <br/>
+                <label for="">Body</label>
+                <input type="text" th:field="*{body}" />
+                <br/>
+            <button class="button">Create Post</button>
+            </form>
+    </div>
 <script th:replace="fragments/scripts :: scripts"></script>
 </body>
 </html>

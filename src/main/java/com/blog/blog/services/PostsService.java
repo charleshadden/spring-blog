@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class PostsService {
+
     private List<Post> posts;
 
     public PostsService() {
