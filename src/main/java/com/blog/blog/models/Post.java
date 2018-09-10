@@ -1,20 +1,28 @@
-package com.blog.blog;
+package com.blog.blog.models;
 
-//@Entity
-//@Table(name = "ads")
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "posts")
 public class Post {
 
-//    @Id
-//    @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
 
-//    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String title;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String body;
 
-    public Post() {}
+//    @Column(columnDefinition = "VARCHAR(200) NOT NULL DEFAULT 'buy now'")
+//    private String callToAction;
+
+    public Post() {
+
+    }
 
     public Post(String title, String body) {
         this.title =title;
@@ -25,6 +33,11 @@ public class Post {
         this.id = id;
         this.title = title;
         this.body = body;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ID: %d, Title: %s, Body: %s", id, title, body );
     }
 
     public String getTitle() { return title; }
