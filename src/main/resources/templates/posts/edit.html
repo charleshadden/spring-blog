@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Edit ad')"></head>
+<body class="container">
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<h1 class="text-center">Edit an Ad</h1>
+
+<div class="box text-center">
+    <form th:action="'/posts/'+ ${post.id} + '/edit'" th:method="post" th:object="${post}">
+        <label for="">Title</label>
+        <input type="text" th:field="*{title}" />
+        <br/>
+        <label for="">Body</label>
+        <input type="text" th:field="*{body}" />
+        <br/>
+        <button class="button">Update Post</button>
+    </form>
+</div>
+<script th:replace="fragments/scripts :: scripts"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <h1 class="text-center">Create an Ad</h1>
 
     <div class="box text-center">
-            <form th:action="'/posts/save'" th:method="post" th:object="${post}">
+            <form th:action="'/posts/create'" th:method="post" th:object="${post}">
                 <label for="">Title</label>
                 <input type="text" th:field="*{title}" />
                 <br/>

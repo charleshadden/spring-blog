@@ -1,18 +1,22 @@
-package com.blog.blog;
+package com.blog.blog.models;
 
-//@Entity
-//@Table(name = "ads")
+import javax.persistence.*;
+
+@Entity
 public class Post {
 
-//    @Id
-//    @GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
 
-//    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String title;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String body;
+
+    @OneToOne
+    private User owner;
 
     public Post() {}
 
