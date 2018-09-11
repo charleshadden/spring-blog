@@ -6,7 +6,7 @@
 <h1>These are all the posts</h1>
 
                 <div th:each="post : ${posts}">
-                    <div class="card post-cards">
+                    <a th:href="@{/posts/{id}(id=${post.id})}"><div class="card post-cards">
                             <div class="card-body">
                                 <div class="profile-container">
                                     <!--this is where user profile will get inserted-->
@@ -14,8 +14,10 @@
                                 <h2 th:text="${post.title}" class="post-title"></h2>
                                 <p th:text="${post.body}" class="post-body"></p>
                             </div>
-                        </div>
+                    </div></a>
                             <button class="button">Comment</button>
+                    <a th:href="@{/posts/delete/{id}(id=${post.id})}"><button class="button">Delete</button></a>
+                    <a th:href="@{/posts/{id}/edit(id=${post.id})}"><button class="button">Edit</button></a>
                  </div>
 
 <script th:replace="fragments/scripts :: scripts"></script>
