@@ -1,8 +1,10 @@
 package com.blog.blog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name= "post")
 public class Post {
 
     @Id
@@ -12,24 +14,42 @@ public class Post {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 5000)
     private String body;
 
-    @OneToOne
-    private User owner;
+    @ManyToOne
+    private User user;
 
-    public Post() {}
 
-    public Post(String title, String body) {
-        this.title =title;
-        this.body = body;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments;
+
+
+
+    public Post() {
+
     }
 
-    public Post(long id, String title, String body) {
-        this.id = id;
+    public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
+
+    public Post(long id, String title, String body, User user) {
+        this.id = id;
+        this.title =title;
+        this.body =body;
+        this.user = user;
+    }
+
+//    public Post(long id, String title, String body, User user, List<Comment> comments) {
+//        this.id = id;
+//        this.title = title;
+//        this.body = body;
+//        this.user = user;
+//        this.comments = comments;
+//    }
 
     public String getTitle() { return title; }
 
@@ -42,4 +62,13 @@ public class Post {
     public long getId() { return id; }
 
     public void setId(long id) { this.id = id; }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
+
+    public List<Comment> getComments() { return comments; }
+
+    public void setComments(List<Comment> comments) { this.comments = comments; }
 }
+

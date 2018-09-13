@@ -5,14 +5,16 @@
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <h1>This is your profile page</h1>
 <script th:replace="fragments/scripts :: scripts"></script>
-
 <div class="the-box">
     <i class="fas fa-user-tie"></i>
-    <p>Username</p>
-    <P>Email</P>
-    <p>Location</p>
+    <h2 th:text="${user.username}"></h2>
+    <p th:text="${user.email}"></p>
+
 
     <h4>User Posts</h4>
+<div th:each="post : ${posts}">
+    <p th:text="${user.post}"></p>
+</div>
 </div>
 
 </body>

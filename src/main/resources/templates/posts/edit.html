@@ -10,11 +10,16 @@
         <label for="">Title</label>
         <input type="text" th:field="*{title}" />
         <br/>
-        <label for="">Body</label>
-        <input type="text" th:field="*{body}" />
-        <br/>
+        <div class="form-group shadow-textarea">
+            <!--<input type="text" th:field="*{body}" />-->
+            <textarea class="form-control z-depth-1" th:field="*{body}" id="exampleFormControlTextarea6" rows="8" placeholder="Write something here..."></textarea>
+        </div>
         <button class="button">Update Post</button>
     </form>
+    <!--<form th:action="@{/posts/delete}" th:method="post">-->
+        <!--<input type="hidden" th:value="${post.id}" name="id">-->
+        <!--<button class="button">Delete</button>-->
+    <!--</form>-->
 </div>
 <script th:replace="fragments/scripts :: scripts"></script>
 </body>
