@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head('Login')"></head>
+<body class="container">
+<nav th:replace="fragments/navbar :: navbar"></nav>
+<h1>This is where you can Login</h1>
+<div class="register-container container">
+    <div class="row main">
+        <div class="main-login main-center">
+            <h1>Log In</h1>
+            <div th:if="${param.error}">
+                Invalid Username and Password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                             <input id="username" name="username" type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input id="password" name="password" type="password" />
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Log In" />
+            </form>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<script th:replace="fragments/scripts :: scripts"></script>
+</body>
+</html>

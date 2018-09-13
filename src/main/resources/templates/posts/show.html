@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/head :: head('Individual Ad')"></head>
+<head th:replace="fragments/head :: head('Individual Post')"></head>
 <body class="container">
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <h1>Individual post</h1>
 <h2 th:text="${post.title}"></h2>
 <p th:text="${post.body}"></p>
+<p th:text="${post.user.username}"></p>
+<div th:each="comment : ${comments}">
+    <th:block th:include="fragments/comment :: comment"></th:block>
+</div>
+    <form th:action="@{/posts/delete}" th:method="post">
+        <input type="hidden" th:value="${post.id}" name="id" />
+        <button class="button">Delete</button>
+    </form>
+<button class="button">Comment</button>
+<a th:href="@{/posts/{id}/edit(id=${post.id})}"><button class="button">Edit</button></a>
 <script th:replace="fragments/scripts :: scripts"></script>
 </body>
 </html>
