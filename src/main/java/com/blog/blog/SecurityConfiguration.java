@@ -15,11 +15,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsLoader usersLoader;
 
     public SecurityConfiguration(UserDetailsLoader usersLoader) {
+
         this.usersLoader = usersLoader;
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 
